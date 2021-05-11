@@ -1,19 +1,25 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SideMenu from './nav/SideMenu';
+import './app.scss';
 import TabBar from './nav/TabBar';
 import TopBar from './nav/TopBar';
-import Home from './search/Search';
-import './app.scss';
+import Search from './search/Search';
+import Bookings from './bookings/Bookings';
+import Favorites from './favorites/Favorites';
 
 function App() {
   return (
     <BrowserRouter>
       <TopBar />
-      <SideMenu />
       <TabBar />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Search />
+        </Route>
+        <Route exact path="/bookings">
+          <Bookings />
+        </Route>
+        <Route exact path="/favorites">
+          <Favorites />
         </Route>
       </Switch>
     </BrowserRouter>
