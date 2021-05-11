@@ -19,7 +19,7 @@ const TopBar = () => {
                     </div>
                 </div>
             </div>
-            {menuOpen && <SideMenu setMenuOpen={setMenuOpen} menuOpen={menuOpen} />}
+            <SideMenu setMenuOpen={setMenuOpen} menuOpen={menuOpen} />
         </>
     );
 }

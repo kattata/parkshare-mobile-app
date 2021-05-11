@@ -10,3 +10,11 @@ body {
     font-family: 'Lato';
     color: black;
 }
+
+.secondary-btn {
+    background-color: white;
+    padding: 5px 10px;
+    border: none;
+    border: 1px solid $light-grey;
+    border-radius: 8px;
+}
