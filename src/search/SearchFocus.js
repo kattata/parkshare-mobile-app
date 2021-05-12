@@ -8,6 +8,7 @@ const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, 
         console.log(e.target.dataset.longitude);
         // setChosenDestination()
         setSearchBarState(3);
+        console.log(searchBarState);
         setDestinationOpen(false);
     }
 

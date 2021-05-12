@@ -1,4 +1,5 @@
 import search from '../assets/search-grey.svg';
+import filters from '../assets/sliders.svg';
 import { useState } from 'react';
 
 const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState }) => {
@@ -16,24 +17,33 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
         setSearchBarState(2);
     }
 
-    const handleClassName = () => {
-        if (searchBarState === 1) {
-            return 'search-bar';
-        } else if (searchBarState === 2) {
-            return 'search-bar focus';
-        } else if (searchBarState === 3) {
-            return 'search-bar';
-        }
-    }
-
     return (
-        <form onSubmit={handleSubmit} className={searchBarState === 1 || searchBarState === 3 ? 'search-bar' : 'search-bar focus'} onFocus={handleFocus}>
-            <img src={search} alt="magnifying glass" />
-            <input type="text" placeholder="Where do you want to park?" value={searchValue} onChange={handleInputChange} />
+        <div className={searchBarState === 1 || searchBarState === 3 ? 'search-box' : 'search-box focus'}>
+            <form onSubmit={handleSubmit} onFocus={handleFocus} className="search-bar">
+                <img src={search} alt="magnifying glass" />
+                <input type="text" placeholder="Where do you want to park?" value={searchValue} onChange={handleInputChange} />
+                {searchBarState === 3 && (<img src={filters} alt="filters" />)}
+            </form>
             {searchBarState === 3 && (
-                <p>HIIIDSA J</p>
+                <>
+                    <div className="dates">
+                        <button>
+                            <h5>From</h5>
+                            <h4>Choose Date</h4>
+                        </button>
+                        <button>
+                            <h5>To</h5>
+                            <h4>Choose Date</h4>
+                        </button>
+                    </div>
+                    <div className="vehicles">
+                        <button>
+                            <h4>Choose vehicle(s)</h4>
+                        </button>
+                    </div>
+                </>
             )}
-        </form>
+        </div>
     );
 }
 

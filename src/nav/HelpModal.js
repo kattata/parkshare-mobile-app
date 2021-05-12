@@ -11,7 +11,7 @@ const HelpModal = ({ setHelpOpen, helpOpen }) => {
                 <img src={phone} alt="phone" />
                 +45 42 72 99 88
             </button>
-            <p>Phone line open every day from 6.00 to 22.00</p>
+            <h5>Phone line open every day from 6.00 to 22.00</h5>
             <button className="secondary-btn">
                 <img src={email} alt="email envelope" />
                 info@parkshare.dk
