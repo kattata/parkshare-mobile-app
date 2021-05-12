@@ -1,23 +1,38 @@
-import ReactMapGL from 'react-map-gl';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import './search.scss';
+import Map from './Map';
+import SearchFocus from './SearchFocus';
+import axios from 'axios';
+import SearchBar from './SearchBar';
+
 
 const Search = () => {
 
-    const mapboxToken = 'pk.eyJ1Ijoia2F0dGF0YSIsImEiOiJjazdkMW9samkwamVxM2ZwYTdycWVqeTdnIn0.UiaVPV8_C6knWwC1_K8zkA';
-    const mapStyle = 'mapbox://styles/kattata/ckofno0o03js117s4s901yezz';
+    const [searchValue, setSearchValue] = useState("");
+    const [destinationOpen, setDestinationOpen] = useState(false);
 
-    const [viewport, setViewport] = useState({
-        width: '100vw',
-        height: '100vh',
-        latitude: 56.148,
-        longitude: 10.213,
-        zoom: 12
-    });
+    const [searchResults, setSearchResults] = useState([]);
+
+    useEffect(() => {
+        const accessKey = 'c0eb1888cedfba2900c84577ae6a206a';
+        const url = `http://api.positionstack.com/v1/forward?access_key=${accessKey}&query=${searchValue}`;
+
+        axios.get(url)
+            .then((res) => {
+                console.log(res.data.data);
+                setSearchResults(res.data.data)
+            })
+    }, [searchValue])
+
+    const [searchBarState, setSearchBarState] = useState(1);
+    const [chosenDestination, setChosenDestination] = useState(null);
 
     return (
         <div className="search">
-            <ReactMapGL {...viewport} mapboxApiAccessToken={mapboxToken} onViewportChange={nextViewport => setViewport(nextViewport)} mapStyle={mapStyle}
-            ></ReactMapGL>
+            <Map />
+            <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} />
+            {destinationOpen && <SearchFocus searchValue={searchValue} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setChosenDestination={setChosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} />
+            }
         </div>
     );
 }
