@@ -11,10 +11,41 @@ body {
     color: black;
 }
 
+h1 {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 16px;
+}
+
 .secondary-btn {
     background-color: white;
-    padding: 5px 10px;
+    padding: 6px 13px;
     border: none;
     border: 1px solid $light-grey;
     border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 18px;
+        margin-right: 10px;
+    }
+}
+
+.close {
+    height: 20px;
 }

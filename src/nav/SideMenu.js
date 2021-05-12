@@ -15,7 +15,7 @@ const SideMenu = ({ setMenuOpen, menuOpen }) => {
                         <img src={avatar} alt="avatar" />
                         <p>Hi, Kasia!</p>
                     </div>
-                    <img src={close} alt="letter x" onClick={() => setMenuOpen(false)} />
+                    <img src={close} alt="letter x" onClick={() => setMenuOpen(false)} className="close" />
                 </div>
             </div>
             <div className="links">
