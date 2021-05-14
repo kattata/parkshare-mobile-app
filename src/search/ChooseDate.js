@@ -8,17 +8,35 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
         time: undefined
     })
 
-    const handleInputChange = (e) => {
+    const [toDate, setToDate] = useState({
+        day: undefined,
+        time: undefined
+    })
+
+    const handleFromChange = (e) => {
         const updated = { ...fromDate, [e.target.id]: e.target.value };
         setFromDate(updated);
     }
 
-    const handleSubmit = (e) => {
+    const handleToChange = (e) => {
+        const updated = { ...toDate, [e.target.id]: e.target.value };
+        setToDate(updated);
+    }
+
+    const handleSubmitFrom = (e) => {
         e.preventDefault();
         setSelectedDate({
             ...selectedDate, from: `${fromDate.day} ${fromDate.time}`
         })
         setChooseDateState(2);
+    }
+
+    const handleSubmitTo = (e) => {
+        e.preventDefault();
+        setSelectedDate({
+            ...selectedDate, to: `${toDate.day} ${toDate.time}`
+        })
+        setChooseDateState(0);
     }
 
     const chooseFromDate = (
@@ -35,11 +53,11 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
                     <span className="tab-line"></span>
                 </div>
                 <button className="secondary-btn">Now</button>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmitFrom}>
                     <label>Date</label>
-                    <input type="date" value={fromDate.day} id="day" onChange={handleInputChange} />
+                    <input type="date" value={fromDate.day} id="day" onChange={handleFromChange} />
                     <label>Time</label>
-                    <input type="time" value={fromDate.time} id="time" onChange={handleInputChange} />
+                    <input type="time" value={fromDate.time} id="time" onChange={handleFromChange} />
                     <button className="primary-btn">Next</button>
                 </form>
             </div>
@@ -59,12 +77,12 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
                     </div>
                     <span className="tab-line"></span>
                 </div>
-                <form>
+                <form onSubmit={handleSubmitTo}>
                     <label>Date</label>
-                    <input type="date" />
+                    <input type="date" value={toDate.day} id="day" onChange={handleToChange} />
                     <label>Time</label>
-                    <input type="time" />
-                    <button className="primary-btn" onClick={() => setChooseDateState(0)}>Apply</button>
+                    <input type="time" value={toDate.time} id="time" onChange={handleToChange} />
+                    <button className="primary-btn">Apply</button>
                 </form>
             </div>
         </div>

@@ -25,6 +25,8 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
         to: "Choose date"
     })
     const [chooseVehicleState, setChooseVehicleState] = useState(0);
+    const [selectedVehicles, setSelectedVehicles] = useState([]);
+
 
     return (
         <>
@@ -57,7 +59,7 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
                                 setChooseVehicleState(1)
                                 setChooseDateState(0);
                             }}>
-                                <h4>Choose vehicle(s)</h4>
+                                <h4>{selectedVehicles.length > 0 ? selectedVehicles.join(", ") : "Choose vehicle(s)"}</h4>
                             </button>
                         </div>
                     </>
@@ -67,7 +69,7 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
                 <ChooseDate chooseDateState={chooseDateState} setChooseDateState={setChooseDateState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
             )}
             {chooseVehicleState && (
-                <ChooseVehicle chooseVehicleState={chooseVehicleState} setChooseVehicleState={setChooseVehicleState} />
+                <ChooseVehicle chooseVehicleState={chooseVehicleState} setChooseVehicleState={setChooseVehicleState} selectedVehicles={selectedVehicles} setSelectedVehicles={setSelectedVehicles} />
             )}
         </>
     );

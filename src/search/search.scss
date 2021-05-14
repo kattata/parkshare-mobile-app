@@ -42,6 +42,11 @@
 
     }
 
+    .dates {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
     button {
         background-color: white;
         border: none;
@@ -177,6 +182,11 @@
 }
 
 .choose-vehicle {
+
+    .vehicles {
+        max-height: 200px;
+        overflow-y: scroll;
+    }
 
     .vehicle {
         display: grid;
