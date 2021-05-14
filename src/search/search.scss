@@ -54,9 +54,27 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+
+    .geolocate-btn {
+        position: absolute;
+        right: 10px;
+        bottom: 70px;
+        background-color: white;
+        box-shadow: $shadow;
+        border-radius: 8px;
+        padding: 5px;
+    }
 }
 
-.search-focus {
+.swipe-line {
+    width: 60px;
+    height: 1px;
+    background-color: $light-grey;
+    display: block;
+    margin: 5px auto 10px;
+}
+
+.bottom-slide-out {
     background-color: white;
     border-radius: 8px 8px 0px 0px;
     position: fixed;
@@ -64,19 +82,13 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    z-index: 2;
-    height: 100%;
-    // height: calc(100% - 40px);
+    z-index: 3;
     box-shadow: $shadow;
+}
 
-    .swipe-line {
-        width: 60px;
-        height: 1px;
-        background-color: $light-grey;
-        display: block;
-        margin: 5px auto 10px;
-    }
-
+.search-focus {
+    height: 100%;
+    
     .results {
         overflow-y: scroll;
         margin-top: 67px;
@@ -93,5 +105,116 @@
         margin: 8px auto;
         padding-left: 15px;
         font-weight: 700;
+    }
+}
+
+.map {
+    .marker-btn {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: $shadow;
+        color: $pink;
+        font-weight: 700;
+        padding: 5px 10px;
+        border: none;
+        position: relative;
+
+        &::after {
+            // background-color: white;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            height: 10px;
+            width: 10px;
+            // border-top: 25px solid transparent;
+            // border-bottom: 25px solid transparent;
+            // border-left: 25px solid $pink;
+            // border-right: 25px solid $pink;
+        }
+    }
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto 20px;
+}
+
+.choose-date {
+
+    .from-to {
+        margin-bottom: 10px;
+
+        div {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .tab-line {
+            height: 1px;
+            width: 100%;
+            background-color: $light-grey;
+            margin: 5px 0;
+            display: block;
+        }
+    }
+
+    form {
+        & * {
+            display: block;
+        }
+
+        input {
+            border: 1px solid $light-grey;
+            border-radius: 8px;
+            padding: 8px;
+            width: 100%;
+        }
+
+        .primary-btn {
+            margin: 10px auto 0;
+        }
+    }
+}
+
+.choose-vehicle {
+
+    .vehicle {
+        display: grid;
+        grid-template-columns: 1fr 1fr 12.8px;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid $light-grey;
+        
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+
+    .primary-btn {
+        margin: 10px auto 0;
+
+    }
+
+    .secondary-btn {
+        margin: 10px auto 0;
+    }
+}
+
+.add-new-vehicle {
+    form {
+        & * {
+            display: block;
+        }
+
+        input {
+            border: 1px solid $light-grey;
+            border-radius: 8px;
+            padding: 8px;
+            width: 100%;
+        }
+
+        .primary-btn {
+            margin: 10px auto 0;
+        }
     }
 }

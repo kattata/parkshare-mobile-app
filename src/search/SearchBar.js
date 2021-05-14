@@ -1,6 +1,8 @@
 import search from '../assets/search-grey.svg';
 import filters from '../assets/sliders.svg';
 import { useState } from 'react';
+import ChooseDate from './ChooseDate';
+import ChooseVehicle from './ChooseVehicle';
 
 const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState }) => {
 
@@ -17,33 +19,57 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
         setSearchBarState(2);
     }
 
+    const [chooseDateState, setChooseDateState] = useState(0);
+    const [selectedDate, setSelectedDate] = useState({
+        from: "Choose date",
+        to: "Choose date"
+    })
+    const [chooseVehicleState, setChooseVehicleState] = useState(0);
+
     return (
-        <div className={searchBarState === 1 || searchBarState === 3 ? 'search-box' : 'search-box focus'}>
-            <form onSubmit={handleSubmit} onFocus={handleFocus} className="search-bar">
-                <img src={search} alt="magnifying glass" />
-                <input type="text" placeholder="Where do you want to park?" value={searchValue} onChange={handleInputChange} />
-                {searchBarState === 3 && (<img src={filters} alt="filters" />)}
-            </form>
-            {searchBarState === 3 && (
-                <>
-                    <div className="dates">
-                        <button>
-                            <h5>From</h5>
-                            <h4>Choose Date</h4>
-                        </button>
-                        <button>
-                            <h5>To</h5>
-                            <h4>Choose Date</h4>
-                        </button>
-                    </div>
-                    <div className="vehicles">
-                        <button>
-                            <h4>Choose vehicle(s)</h4>
-                        </button>
-                    </div>
-                </>
+        <>
+            <div className={searchBarState === 1 || searchBarState === 3 ? 'search-box' : 'search-box focus'}>
+                <form onSubmit={handleSubmit} onFocus={handleFocus} className="search-bar">
+                    <img src={search} alt="magnifying glass" />
+                    <input type="text" placeholder="Where do you want to park?" value={searchValue} onChange={handleInputChange} />
+                    {searchBarState === 3 && (<img src={filters} alt="filters" />)}
+                </form>
+                {searchBarState === 3 && (
+                    <>
+                        <div className="dates">
+                            <button onClick={() => {
+                                setChooseDateState(1)
+                                setChooseVehicleState(0);
+                            }}>
+                                <h5>From</h5>
+                                <h4>{selectedDate.from}</h4>
+                            </button>
+                            <button onClick={() => {
+                                setChooseDateState(2);
+                                setChooseVehicleState(0)
+                            }}>
+                                <h5>To</h5>
+                                <h4>{selectedDate.to}</h4>
+                            </button>
+                        </div>
+                        <div className="vehicles">
+                            <button onClick={() => {
+                                setChooseVehicleState(1)
+                                setChooseDateState(0);
+                            }}>
+                                <h4>Choose vehicle(s)</h4>
+                            </button>
+                        </div>
+                    </>
+                )}
+            </div>
+            {chooseDateState && (
+                <ChooseDate chooseDateState={chooseDateState} setChooseDateState={setChooseDateState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
             )}
-        </div>
+            {chooseVehicleState && (
+                <ChooseVehicle chooseVehicleState={chooseVehicleState} setChooseVehicleState={setChooseVehicleState} />
+            )}
+        </>
     );
 }
 

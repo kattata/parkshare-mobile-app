@@ -1,15 +1,17 @@
 // import { useEffect, useState } from 'react';
 import close from '../assets/x.svg';
 
-const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, searchBarState, setSearchBarState }) => {
+const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, searchBarState, setSearchBarState, goToDestination }) => {
 
     const handleChooseDestination = (e) => {
-        console.log(e.target.dataset.latitude);
-        console.log(e.target.dataset.longitude);
-        // setChosenDestination()
+        setChosenDestination({
+            longitude: e.target.dataset.longitude,
+            latitude: e.target.dataset.latitude
+        });
         setSearchBarState(3);
         console.log(searchBarState);
         setDestinationOpen(false);
+        // goToDestination();
     }
 
     const handleClose = () => {
