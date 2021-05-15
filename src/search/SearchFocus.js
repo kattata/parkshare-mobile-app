@@ -27,7 +27,7 @@ const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, 
             <div className="results">
                 {searchResults.map((result) => {
                     return (
-                        <div className="result" key={result.latitude} data-latitude={result.latitude} data-longitude={result.longitude} onClick={handleChooseDestination}>{result.name}, {result.country}</div>
+                        <div className="result" key={result.latitude} data-latitude={result.latitude} data-longitude={result.longitude} onClick={handleChooseDestination}>{result.label}</div>
                     )
                 })}
             </div>

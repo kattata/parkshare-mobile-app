@@ -4,7 +4,6 @@ import Map from './Map';
 import SearchFocus from './SearchFocus';
 import axios from 'axios';
 import SearchBar from './SearchBar';
-import ReactMapGL, { FlyToInterpolator } from 'react-map-gl';
 import geo from '../assets/geolocate.svg';
 
 
@@ -24,28 +23,25 @@ const Search = () => {
                 console.log(res.data.data);
                 setSearchResults(res.data.data)
             })
+
     }, [searchValue])
 
     const [searchBarState, setSearchBarState] = useState(1);
     const [chosenDestination, setChosenDestination] = useState({
-        longitude: "",
-        latitude: ""
+        longitude: 0,
+        latitude: 0
     });
 
-    // const goToDestination = useCallback(() => {
-    //     setViewport({
-    //         longitude: chosenDestination.latitude,
-    //         latitude: chosenDestination.longitude,
-    //         zoom: 15,
-    //         transitionInterpolator: new FlyToInterpolator({ speed: 1.2 }),
-    //         transitionDuration: 'auto'
-    //     });
-    // }, []);
+    const [selectedDate, setSelectedDate] = useState({
+        from: "Choose date",
+        to: "Choose date"
+    })
+
 
     return (
         <div className="search">
-            <Map />
-            <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} chosenDestination={chosenDestination} />
+            <Map selectedDate={selectedDate} />
+            <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} chosenDestination={chosenDestination} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
             {destinationOpen && <SearchFocus searchValue={searchValue} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setChosenDestination={setChosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} />
             }
             <img src={geo} alt="geolocate" className="geolocate-btn" />

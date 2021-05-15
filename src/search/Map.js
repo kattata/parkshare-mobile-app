@@ -1,9 +1,10 @@
 import ReactMapGL, { Marker, FlyToInterpolator } from 'react-map-gl';
 import { useEffect, useState } from 'react';
 import firebase from '../utils/Firebase';
+import SpotDetails from './SpotDetails';
 
 
-const Map = () => {
+const Map = ({ selectedDate }) => {
 
     const mapboxToken = 'pk.eyJ1Ijoia2F0dGF0YSIsImEiOiJjazdkMW9samkwamVxM2ZwYTdycWVqeTdnIn0.UiaVPV8_C6knWwC1_K8zkA';
     const mapStyle = 'mapbox://styles/kattata/ckofno0o03js117s4s901yezz';
@@ -20,42 +21,42 @@ const Map = () => {
     const spotsRef = firebase.firestore().collection("spots");
 
     useEffect(() => {
+        let spotsArray = [];
 
         spotsRef.onSnapshot(function (snapshotData) {
-            let spotsArray = [];
             snapshotData.forEach(function (doc) {
                 let spot = doc.data();
                 spot.id = doc.id;
                 spotsArray.push(spot);
             });
-            setSpots(spotsArray);
-            // console.log(spotsArray);
         });
+
+        setSpots(spotsArray);
     }, [])
 
 
-    // const [selectedSpot, setSelectedSpot] = useState(null);
-    // const openSpotDetails = (e) => {
 
-    // }
+    const [selectedSpot, setSelectedSpot] = useState(null);
+
 
     return (
-        // <div className="map">
-        <ReactMapGL {...viewport} mapboxApiAccessToken={mapboxToken} onViewportChange={(viewport) => setViewport(viewport)} mapStyle={mapStyle}
-        >
-            {/* <Marker latitude={56.131092} longitude={10.149503}>
-                    <button className="marker-btn" id="1234" onClick={}>
-                        30 kr
-                    </button>
-                </Marker> */}
-            {/* {spots && spots.map(spot => {
+        <>
+            <ReactMapGL {...viewport} mapboxApiAccessToken={mapboxToken} onViewportChange={(viewport) => setViewport(viewport)} mapStyle={mapStyle}
+            >
+                {spots.map(spot => {
                     return (
-                        <Marker key={spot.id} longitude={spot.Longitude} latitude={spot.Latitude}>{spot.Price}</Marker>
+                        <Marker key={spot.id} latitude={spot.longitude} longitude={spot.latitude} >
+                            <button className="marker-btn" onClick={() => setSelectedSpot(spot)}>
+                                {spot.price} kr
+                                <span className="triangle"></span>
+                            </button>
+                        </Marker>
                     )
-                })} */}
-        </ReactMapGL>
-
-        // </div>
+                }
+                )}
+            </ReactMapGL>
+            {selectedSpot && <SpotDetails spots={spots} setSelectedSpot={setSelectedSpot} spot={selectedSpot} selectedDate={selectedDate} />}
+        </>
     );
 }
 

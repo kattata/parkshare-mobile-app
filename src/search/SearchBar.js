@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ChooseDate from './ChooseDate';
 import ChooseVehicle from './ChooseVehicle';
 
-const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState }) => {
+const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState, selectedDate, setSelectedDate }) => {
 
     const handleInputChange = (e) => {
         setSearchValue(e.target.value);
@@ -20,10 +20,7 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
     }
 
     const [chooseDateState, setChooseDateState] = useState(0);
-    const [selectedDate, setSelectedDate] = useState({
-        from: "Choose date",
-        to: "Choose date"
-    })
+
     const [chooseVehicleState, setChooseVehicleState] = useState(0);
     const [selectedVehicles, setSelectedVehicles] = useState([]);
 
