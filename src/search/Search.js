@@ -27,22 +27,32 @@ const Search = () => {
     }, [searchValue])
 
     const [searchBarState, setSearchBarState] = useState(1);
-    const [chosenDestination, setChosenDestination] = useState({
-        longitude: 0,
-        latitude: 0
-    });
+    const [chosenDestination, setChosenDestination] = useState("");
 
     const [selectedDate, setSelectedDate] = useState({
         from: "Choose date",
         to: "Choose date"
     })
 
+    const [viewport, setViewport] = useState({
+        latitude: 56.148,
+        longitude: 10.213,
+        zoom: 12,
+        width: '100%',
+        height: '100%'
+    });
+
+    const goToDestination = (destination) => {
+        let lat = parseFloat(destination.latitude);
+        let long = parseFloat(destination.longitude);
+        setViewport({ ...viewport, latitude: lat, longitude: long, zoom: 14 });
+    }
 
     return (
         <div className="search">
-            <Map selectedDate={selectedDate} />
-            <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} chosenDestination={chosenDestination} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-            {destinationOpen && <SearchFocus searchValue={searchValue} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setChosenDestination={setChosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} />
+            <Map selectedDate={selectedDate} viewport={viewport} setViewport={setViewport} />
+            <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} chosenDestination={chosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+            {destinationOpen && <SearchFocus setChosenDestination={setChosenDestination} searchValue={searchValue} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setSearchValue={setSearchValue} searchBarState={searchBarState} goToDestination={goToDestination} setSearchBarState={setSearchBarState} />
             }
             <img src={geo} alt="geolocate" className="geolocate-btn" />
         </div>

@@ -36,7 +36,10 @@ const ChooseVehicle = ({ setChooseVehicleState, chooseVehicleState, selectedVehi
             <div className="content">
                 <span className="swipe-line"></span>
                 <h2>Choose vehicle(s)</h2>
-                <img src={close} alt="letter x" className="close" onClick={() => setChooseVehicleState(0)} />
+                <img src={close} alt="letter x" className="close" onClick={() => {
+                    setChooseVehicleState(0);
+                    setSelectedVehicles([]);
+                }} />
                 <div className="vehicles">
                     {vehicles.map((vehicle) => {
                         return (

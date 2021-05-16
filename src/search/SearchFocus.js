@@ -1,17 +1,17 @@
 // import { useEffect, useState } from 'react';
 import close from '../assets/x.svg';
 
-const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, searchBarState, setSearchBarState, goToDestination }) => {
+const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, setSearchBarState, goToDestination }) => {
 
-    const handleChooseDestination = (e) => {
-        setChosenDestination({
-            longitude: e.target.dataset.longitude,
-            latitude: e.target.dataset.latitude
-        });
+    const handleChooseDestination = (dest) => {
+        const selectedDestination = {
+            longitude: dest.longitude,
+            latitude: dest.latitude
+        }
+        setChosenDestination(dest.label);
         setSearchBarState(3);
-        console.log(searchBarState);
         setDestinationOpen(false);
-        // goToDestination();
+        goToDestination(selectedDestination);
     }
 
     const handleClose = () => {
@@ -27,7 +27,7 @@ const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, 
             <div className="results">
                 {searchResults.map((result) => {
                     return (
-                        <div className="result" key={result.latitude} data-latitude={result.latitude} data-longitude={result.longitude} onClick={handleChooseDestination}>{result.label}</div>
+                        <div className="result" key={result.latitude} onClick={() => handleChooseDestination(result)}>{result.label}</div>
                     )
                 })}
             </div>

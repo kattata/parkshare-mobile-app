@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ChooseDate from './ChooseDate';
 import ChooseVehicle from './ChooseVehicle';
 
-const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState, selectedDate, setSelectedDate }) => {
+const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState, selectedDate, setSelectedDate, chosenDestination }) => {
 
     const handleInputChange = (e) => {
         setSearchValue(e.target.value);
@@ -30,8 +30,8 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
             <div className={searchBarState === 1 || searchBarState === 3 ? 'search-box' : 'search-box focus'}>
                 <form onSubmit={handleSubmit} onFocus={handleFocus} className="search-bar">
                     <img src={search} alt="magnifying glass" />
-                    <input type="text" placeholder="Where do you want to park?" value={searchValue} onChange={handleInputChange} />
-                    {searchBarState === 3 && (<img src={filters} alt="filters" />)}
+                    <input type="text" placeholder="Where do you want to park?" value={searchBarState === 3 ? chosenDestination : searchValue} onChange={handleInputChange} />
+                    {searchBarState === 3 && (<img src={filters} alt="filters" className="filters" />)}
                 </form>
                 {searchBarState === 3 && (
                     <>

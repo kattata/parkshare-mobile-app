@@ -3,7 +3,7 @@
 
 .search-bar {
     height: 50px;
-    padding-left: 15px;
+    padding-left: 10px;
     display: flex;
     align-items: center;
     
@@ -15,6 +15,11 @@
     
     img {
         margin-right: 10px;
+    }
+
+    .filters {
+        background-color: white;
+        padding-left: 10px;
     }
 }
 
@@ -36,7 +41,7 @@
 
     .dates, .vehicles {
         display: flex;
-        padding: 10px 20px;
+        padding: 10px 15px;
         justify-content: space-between;
         border-top: 1px solid $light-grey;
 
