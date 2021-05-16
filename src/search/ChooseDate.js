@@ -4,13 +4,13 @@ import { useState } from 'react';
 const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSelectedDate }) => {
 
     const [fromDate, setFromDate] = useState({
-        day: undefined,
-        time: undefined
+        day: "",
+        time: ""
     })
 
     const [toDate, setToDate] = useState({
-        day: undefined,
-        time: undefined
+        day: "",
+        time: ""
     })
 
     const handleFromChange = (e) => {
@@ -23,19 +23,61 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
         setToDate(updated);
     }
 
+    const assignMonthNames = (month) => {
+        let nameMonth = "";
+
+        switch (month) {
+            case "01":
+                return nameMonth = "Jan";
+            case "02":
+                return nameMonth = "Feb";
+            case "03":
+                return nameMonth = "Mar";
+            case "04":
+                return nameMonth = "Apr";
+            case "05":
+                return nameMonth = "May";
+            case "06":
+                return nameMonth = "Jun";
+            case "07":
+                return nameMonth = "Jul";
+            case "08":
+                return nameMonth = "Aug";
+            case "09":
+                return nameMonth = "Sep";
+            case "10":
+                return nameMonth = "Oct";
+            case "11":
+                return nameMonth = "Nov";
+            case "12":
+                return nameMonth = "Dec";
+            default:
+                return nameMonth = "Err";
+        }
+    }
+
+    const convertDate = (date) => {
+        const month = date.day.slice(5, 7);
+        const day = date.day.slice(8, 10);
+        const hour = date.time.slice(0, 2);
+        const minute = date.time.slice(3, 5);
+
+        let name = assignMonthNames(month);
+
+        return `${day} ${name} ${hour}:${minute}`;
+    }
+
     const handleSubmitFrom = (e) => {
         e.preventDefault();
-        setSelectedDate({
-            ...selectedDate, from: `${fromDate.day} ${fromDate.time}`
-        })
+        const newDate = convertDate(fromDate);
+        setSelectedDate({ ...selectedDate, from: newDate });
         setChooseDateState(2);
     }
 
     const handleSubmitTo = (e) => {
         e.preventDefault();
-        setSelectedDate({
-            ...selectedDate, to: `${toDate.day} ${toDate.time}`
-        })
+        const newDate = convertDate(toDate);
+        setSelectedDate({ ...selectedDate, to: newDate });
         setChooseDateState(0);
     }
 
