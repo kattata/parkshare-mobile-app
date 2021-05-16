@@ -52,9 +52,8 @@ const Search = () => {
         <div className="search">
             <Map selectedDate={selectedDate} viewport={viewport} setViewport={setViewport} />
             <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} chosenDestination={chosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-            {destinationOpen && <SearchFocus setChosenDestination={setChosenDestination} searchValue={searchValue} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setSearchValue={setSearchValue} searchBarState={searchBarState} goToDestination={goToDestination} setSearchBarState={setSearchBarState} />
-            }
-            <img src={geo} alt="geolocate" className="geolocate-btn" />
+            <SearchFocus setChosenDestination={setChosenDestination} searchValue={searchValue} destinationOpen={destinationOpen} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setSearchValue={setSearchValue} searchBarState={searchBarState} goToDestination={goToDestination} setSearchBarState={setSearchBarState} />
+            {/* <img src={geo} alt="geolocate" className="geolocate-btn" /> */}
         </div>
     );
 }

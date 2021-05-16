@@ -78,7 +78,6 @@
     height: 100%;
     position: fixed;
     top: 0;
-    left: 0;
     width: 88%;
     max-width: 350px;
     box-shadow: $shadow;
@@ -162,7 +161,7 @@
     background-color: white;
     box-shadow: $shadow;
     border-radius: 8px;
-    padding: 15px;
+    padding: 20px 30px;
     position: absolute;
     top: 53%;
     left: 50%;
@@ -171,7 +170,7 @@
     width: 80%;
     text-align: center;
     opacity: 0;
-    z-index: 2;
+    z-index: 7;
     visibility: hidden;
     
     &.active {
@@ -180,11 +179,13 @@
         visibility: visible;
     }
 
-    button {
+    .secondary-btn {
         margin: auto;
+        width: 100%;
+        justify-content: center;
     }
 
-    p {
-        font-size: 12px;
+    h5 {
+        margin: 5px auto 15px;
     }
 }

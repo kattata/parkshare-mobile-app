@@ -2,7 +2,7 @@
 
 .spot-details {
     z-index: 5;
-    max-height: 95%;
+    max-height: calc(100% - 50px);
     overflow-y: scroll;
     overflow-x: hidden;
 
@@ -17,6 +17,7 @@
 
         .heart {
             margin-left: 10px;
+            height: 20px;
         }
     }
     

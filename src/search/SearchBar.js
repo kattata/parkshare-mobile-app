@@ -62,12 +62,8 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
                     </>
                 )}
             </div>
-            {chooseDateState && (
-                <ChooseDate chooseDateState={chooseDateState} setChooseDateState={setChooseDateState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-            )}
-            {chooseVehicleState && (
-                <ChooseVehicle chooseVehicleState={chooseVehicleState} setChooseVehicleState={setChooseVehicleState} selectedVehicles={selectedVehicles} setSelectedVehicles={setSelectedVehicles} />
-            )}
+            <ChooseDate chooseDateState={chooseDateState} setChooseDateState={setChooseDateState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+            <ChooseVehicle chooseVehicleState={chooseVehicleState} setChooseVehicleState={setChooseVehicleState} selectedVehicles={selectedVehicles} setSelectedVehicles={setSelectedVehicles} />
         </>
     );
 }

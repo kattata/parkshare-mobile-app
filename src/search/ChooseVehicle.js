@@ -32,7 +32,7 @@ const ChooseVehicle = ({ setChooseVehicleState, chooseVehicleState, selectedVehi
     }
 
     const chooseVehicle = (
-        <div className="choose-vehicle bottom-slide-out">
+        <div className={chooseVehicleState === 1 ? 'choose-vehicle bottom-slide-out active' : 'choose-vehicle bottom-slide-out'}>
             <div className="content">
                 <span className="swipe-line"></span>
                 <h2>Choose vehicle(s)</h2>
@@ -74,7 +74,7 @@ const ChooseVehicle = ({ setChooseVehicleState, chooseVehicleState, selectedVehi
     }
 
     const addNewVehicle = (
-        <div className="add-new-vehicle bottom-slide-out">
+        <div className={chooseVehicleState === 2 ? 'add-new-vehicle bottom-slide-out active' : 'add-new-vehicle bottom-slide-out'}>
             <div className="content">
                 <form onSubmit={handleSubmit}>
                     <span className="swipe-line"></span>
@@ -92,8 +92,8 @@ const ChooseVehicle = ({ setChooseVehicleState, chooseVehicleState, selectedVehi
 
     return (
         <>
-            {chooseVehicleState === 1 && chooseVehicle}
-            {chooseVehicleState === 2 && addNewVehicle}
+            {chooseVehicle}
+            {addNewVehicle}
         </>
     );
 }

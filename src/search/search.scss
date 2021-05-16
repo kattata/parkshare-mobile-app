@@ -70,13 +70,8 @@
     overflow: hidden;
 
     .geolocate-btn {
-        position: absolute;
         right: 10px;
         bottom: 70px;
-        background-color: white;
-        box-shadow: $shadow;
-        border-radius: 8px;
-        padding: 5px;
     }
 }
 
@@ -92,12 +87,17 @@
     background-color: white;
     border-radius: 8px 8px 0px 0px;
     position: fixed;
-    bottom: 0;
+    bottom: -100%;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
     z-index: 3;
     box-shadow: $shadow;
+    transition: all 0.5s ease-in-out;
+
+    &.active {
+        bottom: 0;
+    }
 }
 
 .search-focus {
@@ -120,6 +120,7 @@
         padding: 10px 15px;
         font-weight: 700;
     }
+
 }
 
 .marker-btn {

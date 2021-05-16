@@ -4,16 +4,10 @@ import pin from '../assets/map-pin.svg';
 import handicap from '../assets/disabled.svg';
 import './spot.scss';
 
-const SpotDetails = ({ spot, setSelectedSpot, selectedDate }) => {
+const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
 
-    // const handleChecked = (e) => {
-    //     if (spot.gated) {
-    //         e.target.checked;
-    //     }
-    // }
-
-    return (
-        <div className="spot-details bottom-slide-out">
+    const details = (
+        <div className={detailsOpen ? 'spot-details bottom-slide-out active' : 'spot-details bottom-slide-out'}>
             <span className="swipe-line"></span>
             <div className="content">
                 <h2>{spot.address}</h2>
@@ -38,7 +32,7 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate }) => {
                 <div className="split">
                     <div className="split-item">
                         <h5>Total price</h5>
-                        <h4>{spot.price}</h4>
+                        <h4>{spot.price} kr</h4>
                     </div>
                     <div className="split-item">
                         <h5>Total duration</h5>
@@ -102,6 +96,12 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate }) => {
                 </div>
             </div>
         </div>
+    )
+
+    return (
+        <>
+            {details}
+        </>
     );
 }
 

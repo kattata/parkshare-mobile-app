@@ -1,7 +1,7 @@
 // import { useEffect, useState } from 'react';
 import close from '../assets/x.svg';
 
-const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, setSearchBarState, goToDestination }) => {
+const SearchFocus = ({ setDestinationOpen, destinationOpen, searchResults, setChosenDestination, searchBarState, setSearchBarState, goToDestination }) => {
 
     const handleChooseDestination = (dest) => {
         const selectedDestination = {
@@ -20,7 +20,8 @@ const SearchFocus = ({ setDestinationOpen, searchResults, setChosenDestination, 
     }
 
     return (
-        <div className="search-focus bottom-slide-out">
+        <div className={destinationOpen ? 'search-focus bottom-slide-out active' : 'search-focus bottom-slide-out'}>
+            {/* <div className="search-focus bottom-slide-out"> */}
             <span className="swipe-line"></span>
             <h2>Choose destination</h2>
             <img src={close} alt="letter x" className="close" onClick={handleClose} />

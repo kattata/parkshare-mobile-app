@@ -82,7 +82,8 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
     }
 
     const chooseFromDate = (
-        <div className="choose-date bottom-slide-out">
+        <div className={chooseDateState === 1 ? 'choose-date bottom-slide-out active' : 'choose-date bottom-slide-out'}>
+            {/* <div className="choose-date bottom-slide-out"> */}
             <span className="swipe-line"></span>
             <h2>Choose date</h2>
             <img src={close} alt="letter x" className="close" onClick={() => setChooseDateState(0)} />
@@ -107,7 +108,7 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
     );
 
     const chooseToDate = (
-        <div className="choose-date bottom-slide-out">
+        <div className={chooseDateState === 2 ? 'choose-date bottom-slide-out active' : 'choose-date bottom-slide-out'}>
             <span className="swipe-line"></span>
             <h2>Choose date</h2>
             <img src={close} alt="letter x" className="close" onClick={() => setChooseDateState(0)} />
@@ -133,8 +134,8 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
 
     return (
         <>
-            {chooseDateState === 1 && chooseFromDate}
-            {chooseDateState === 2 && chooseToDate}
+            {chooseFromDate}
+            {chooseToDate}
         </>
     );
 }
