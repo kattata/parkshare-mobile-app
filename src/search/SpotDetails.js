@@ -61,13 +61,6 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
                 <div className="extras">
                     <div className="extra">
                         <div>
-                            <img src={heart} alt="heart" />
-                        Favorites
-                    </div>
-                        <input type="checkbox" checked={spot.favorite} />
-                    </div>
-                    <div className="extra">
-                        <div>
                             <img src={handicap} alt="handicap wheelchair" />
                         Suitable for wheelchairs
                     </div>

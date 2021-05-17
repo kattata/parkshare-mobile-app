@@ -1,8 +1,12 @@
 import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
 import { useEffect, useState } from 'react';
 import firebase from '../utils/Firebase';
 import SpotDetails from './SpotDetails';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 const Map = ({ selectedDate, viewport, setViewport }) => {
 

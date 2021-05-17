@@ -14,7 +14,7 @@ const Search = () => {
 
     useEffect(() => {
         const accessKey = 'c0eb1888cedfba2900c84577ae6a206a';
-        const url = `http://api.positionstack.com/v1/forward?access_key=${accessKey}&query=${searchValue}`;
+        const url = `https://api.positionstack.com/v1/forward?access_key=${accessKey}&query=${searchValue}`;
 
         axios.get(url)
             .then((res) => {
@@ -43,7 +43,7 @@ const Search = () => {
     const goToDestination = (destination) => {
         let lat = parseFloat(destination.latitude);
         let long = parseFloat(destination.longitude);
-        setViewport({ ...viewport, latitude: lat, longitude: long, zoom: 14 });
+        setViewport({ ...viewport, latitude: lat, longitude: long });
     }
 
     return (
