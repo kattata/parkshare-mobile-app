@@ -1,11 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import './search.scss';
 import Map from './Map';
 import SearchFocus from './SearchFocus';
 import axios from 'axios';
 import SearchBar from './SearchBar';
-import geo from '../assets/geolocate.svg';
-
 
 const Search = () => {
 
@@ -53,7 +51,6 @@ const Search = () => {
             <Map selectedDate={selectedDate} viewport={viewport} setViewport={setViewport} />
             <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} chosenDestination={chosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
             <SearchFocus setChosenDestination={setChosenDestination} searchValue={searchValue} destinationOpen={destinationOpen} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setSearchValue={setSearchValue} searchBarState={searchBarState} goToDestination={goToDestination} setSearchBarState={setSearchBarState} />
-            {/* <img src={geo} alt="geolocate" className="geolocate-btn" /> */}
         </div>
     );
 }

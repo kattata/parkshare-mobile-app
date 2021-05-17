@@ -14,45 +14,43 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
     })
 
     const handleFromChange = (e) => {
-        const updated = { ...fromDate, [e.target.id]: e.target.value };
+        const updated = { ...fromDate, [e.target.name]: e.target.value };
         setFromDate(updated);
     }
 
     const handleToChange = (e) => {
-        const updated = { ...toDate, [e.target.id]: e.target.value };
+        const updated = { ...toDate, [e.target.name]: e.target.value };
         setToDate(updated);
     }
 
     const assignMonthNames = (month) => {
-        let nameMonth = "";
-
         switch (month) {
             case "01":
-                return nameMonth = "Jan";
+                return "Jan";
             case "02":
-                return nameMonth = "Feb";
+                return "Feb";
             case "03":
-                return nameMonth = "Mar";
+                return "Mar";
             case "04":
-                return nameMonth = "Apr";
+                return "Apr";
             case "05":
-                return nameMonth = "May";
+                return "May";
             case "06":
-                return nameMonth = "Jun";
+                return "Jun";
             case "07":
-                return nameMonth = "Jul";
+                return "Jul";
             case "08":
-                return nameMonth = "Aug";
+                return "Aug";
             case "09":
-                return nameMonth = "Sep";
+                return "Sep";
             case "10":
-                return nameMonth = "Oct";
+                return "Oct";
             case "11":
-                return nameMonth = "Nov";
+                return "Nov";
             case "12":
-                return nameMonth = "Dec";
+                return "Dec";
             default:
-                return nameMonth = "Err";
+                return "Err";
         }
     }
 
@@ -62,9 +60,9 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
         const hour = date.time.slice(0, 2);
         const minute = date.time.slice(3, 5);
 
-        let name = assignMonthNames(month);
+        let nameOfMonth = assignMonthNames(month);
 
-        return `${day} ${name} ${hour}:${minute}`;
+        return `${day} ${nameOfMonth} ${hour}:${minute}`;
     }
 
     const handleSubmitFrom = (e) => {
@@ -98,9 +96,9 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
                 <button className="secondary-btn">Now</button>
                 <form onSubmit={handleSubmitFrom}>
                     <label>Date</label>
-                    <input type="date" value={fromDate.day} id="day" onChange={handleFromChange} />
+                    <input type="date" value={fromDate.day} name="day" onChange={handleFromChange} />
                     <label>Time</label>
-                    <input type="time" value={fromDate.time} id="time" onChange={handleFromChange} />
+                    <input type="time" value={fromDate.time} name="time" onChange={handleFromChange} />
                     <button className="primary-btn">Next</button>
                 </form>
             </div>
@@ -122,9 +120,9 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
                 </div>
                 <form onSubmit={handleSubmitTo}>
                     <label>Date</label>
-                    <input type="date" value={toDate.day} id="day" onChange={handleToChange} />
+                    <input type="date" value={toDate.day} name="day" onChange={handleToChange} />
                     <label>Time</label>
-                    <input type="time" value={toDate.time} id="time" onChange={handleToChange} />
+                    <input type="time" value={toDate.time} name="time" onChange={handleToChange} />
                     <button className="primary-btn">Apply</button>
                 </form>
             </div>
