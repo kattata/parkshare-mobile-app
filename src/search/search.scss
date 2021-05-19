@@ -20,6 +20,7 @@
     .filters {
         background-color: white;
         padding-left: 10px;
+        height: 22px;
     }
 }
 
@@ -166,12 +167,20 @@
             justify-content: space-around;
         }
 
-        .tab-line {
-            height: 1px;
-            width: 100%;
-            background-color: $light-grey;
-            margin: 5px 0;
-            display: block;
+        .tab-lines {
+            display: flex;
+            
+            .from-line, .to-line {
+                margin: 5px 0;
+                background-color: $light-grey;
+                display: block;
+                height: 1px;
+                width: 50%;
+            }
+
+            .active-line {
+                background-color: $pink;
+            }
         }
     }
 
@@ -185,8 +194,9 @@
             border-radius: 8px;
             padding: 8px;
             width: 100%;
+            background-color: white;
         }
-
+        
         .primary-btn {
             margin: 10px auto 0;
         }
@@ -194,12 +204,12 @@
 }
 
 .choose-vehicle {
-
+    
     .vehicles {
         max-height: 200px;
         overflow-y: scroll;
     }
-
+    
     .vehicle {
         display: grid;
         grid-template-columns: 1fr 1fr 12.8px;
@@ -211,7 +221,7 @@
             border-bottom: none;
         }
     }
-
+    
     .primary-btn {
         margin: 10px auto 0;
 
@@ -227,12 +237,13 @@
         & * {
             display: block;
         }
-
+        
         input {
             border: 1px solid $light-grey;
             border-radius: 8px;
             padding: 8px;
             width: 100%;
+            background-color: white;
         }
 
         .primary-btn {

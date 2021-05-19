@@ -1,6 +1,6 @@
-import heart from '../assets/heart-grey.svg';
+import blackHeart from '../assets/heart-black.svg';
+import pinkHeart from '../assets/heart-pink.png';
 import close from '../assets/x.svg';
-import pin from '../assets/map-pin.svg';
 import handicap from '../assets/disabled.svg';
 import './spot.scss';
 
@@ -14,10 +14,13 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
                 <img src={close} alt="letter x" className="close" onClick={() => setSelectedSpot(null)} />
                 <div className="top">
                     <div className="secondary-btn">
-                        <img src={pin} alt="map pin" />
-                See directions
+                        See directions
                     </div>
-                    <img src={heart} alt="heart" className="heart" />
+                    {spot.favorite ? (
+                        <img src={pinkHeart} alt="pink heart" className="heart" />
+                    ) : (
+                        <img src={blackHeart} alt="black heart" className="heart" />
+                    )}
                 </div>
                 <div className="dates">
                     <button>
@@ -47,7 +50,10 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
                     <span className="circle"></span>
                     <span className="circle"></span>
                 </div>
-                <p className="description">{spot.description}</p>
+                <p className="description">
+                    <h4>Description</h4>
+                    {spot.description}
+                </p>
                 <div className="split">
                     <div className="split-item">
                         <h5>Number of spots</h5>
@@ -59,29 +65,30 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
                     </div>
                 </div>
                 <div className="extras">
-                    <div className="extra">
-                        <div>
-                            <img src={handicap} alt="handicap wheelchair" />
+                    <h4>Extras</h4>
+                    {spot.handicap && (
+                        <div className="extra">
+                            <div>
+                                <img src={handicap} alt="handicap wheelchair" />
                         Suitable for wheelchairs
                     </div>
-                        <input type="checkbox" checked={spot.handicap} />
-                    </div>
-                    <div className="extra">
-                        Electric charger
-                        <input type="checkbox" />
-                    </div>
-                    <div className="extra">
-                        CCTV
-                        <input type="checkbox" checked={spot.cctv} />
-                    </div>
-                    <div className="extra">
-                        Under a roof
-                        <input type="checkbox" checked={spot.roofed} />
-                    </div>
-                    <div className="extra">
-                        Gated
-                        <input type="checkbox" checked={spot.gated} />
-                    </div>
+                        </div>
+                    )}
+                    {spot.cctv && (
+                        <div className="extra">
+                            CCTV
+                        </div>
+                    )}
+                    {spot.roofed && (
+                        <div className="extra">
+                            Under a roof
+                        </div>
+                    )}
+                    {spot.gated && (
+                        <div className="extra">
+                            Gated
+                        </div>
+                    )}
                 </div>
                 <div className="btn-group">
                     <button className="ghost-btn">Back</button>

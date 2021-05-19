@@ -91,7 +91,10 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
                         <h5 onClick={() => setChooseDateState(1)}>From</h5>
                         <h5 onClick={() => setChooseDateState(2)}>To</h5>
                     </div>
-                    <span className="tab-line"></span>
+                    <span className="tab-lines">
+                        <span className="from-line active-line"></span>
+                        <span className="to-line"></span>
+                    </span>
                 </div>
                 <button className="secondary-btn">Now</button>
                 <form onSubmit={handleSubmitFrom}>
@@ -116,7 +119,10 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
                         <h5 onClick={() => setChooseDateState(1)}>From</h5>
                         <h5 onClick={() => setChooseDateState(2)}>To</h5>
                     </div>
-                    <span className="tab-line"></span>
+                    <span className="tab-lines">
+                        <span className="from-line"></span>
+                        <span className="to-line active-line"></span>
+                    </span>
                 </div>
                 <form onSubmit={handleSubmitTo}>
                     <label>Date</label>

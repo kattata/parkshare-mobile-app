@@ -3,6 +3,9 @@ import avatar from '../assets/avatar.svg';
 import close from '../assets/x.svg';
 import logo from '../assets/parkshare-logo.png';
 import signOut from '../assets/log-out.svg';
+import fb from '../assets/facebook.svg';
+import linkedin from '../assets/linkedin.svg';
+import ig from '../assets/instagram.svg';
 
 const SideMenu = ({ setMenuOpen, menuOpen }) => {
 
@@ -51,7 +54,20 @@ const SideMenu = ({ setMenuOpen, menuOpen }) => {
                 </div>
             </div>
             <div className="footer">
-                <img src={logo} alt="parkshare logo" className="logo" />
+                <a href="https://parkshare.dk/">
+                    <img src={logo} alt="parkshare logo" className="logo" />
+                </a>
+                <div className="some">
+                    <a href="https://www.facebook.com/ParkShareEurope/">
+                        <img src={fb} alt="facebook" />
+                    </a>
+                    <a href="https://www.instagram.com/parkshare/">
+                        <img src={ig} alt="instagram" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/parkshare-europe/">
+                        <img src={linkedin} alt="linkedin" />
+                    </a>
+                </div>
                 <div className="sign-out">
                     <img src={signOut} alt="sign out" />
                     <p>Sign out</p>
