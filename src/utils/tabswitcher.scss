@@ -1,0 +1,26 @@
+@import '../assets';
+
+.tab-switcher {
+    margin-bottom: 10px;
+
+    div {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .tab-lines {
+        display: flex;
+        
+        .first-line, .second-line {
+            margin: 5px 0;
+            background-color: $light-grey;
+            display: block;
+            height: 1px;
+            width: 50%;
+        }
+
+        .active-line {
+            background-color: $pink;
+        }
+    }
+}
