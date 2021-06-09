@@ -25,14 +25,35 @@
     }
 }
 
+.details-line {
+    background-color: $light-grey;
+    height: 1px;
+    width: 100vw;
+    display: block;
+    margin-left: -15px;
+
+    &.short {
+        width: 100%;
+        margin: 0;
+    }
+}
+
 .dates {
     padding: 10px 15px;
     justify-content: space-between;
-    border-top: 1px solid $light-grey;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     h4 {
         text-align: left;
+    }
+
+    button {
+        background-color: white;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0;
     }
 }

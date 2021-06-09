@@ -8,7 +8,7 @@ import SpotDetails from './SpotDetails';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
-const Map = ({ selectedDate, viewport, setViewport }) => {
+const Map = ({ selectedDate, viewport, setViewport, setChooseVehicleState, setChooseDateState }) => {
 
     const mapboxToken = 'pk.eyJ1Ijoia2F0dGF0YSIsImEiOiJjazdkMW9samkwamVxM2ZwYTdycWVqeTdnIn0.UiaVPV8_C6knWwC1_K8zkA';
     const mapStyle = 'mapbox://styles/kattata/ckofno0o03js117s4s901yezz';
@@ -59,7 +59,7 @@ const Map = ({ selectedDate, viewport, setViewport }) => {
                 />
             </ReactMapGL>
             {selectedSpot && (
-                <SpotDetails setSelectedSpot={setSelectedSpot} spot={selectedSpot} selectedDate={selectedDate} detailsOpen={detailsOpen} />
+                <SpotDetails setSelectedSpot={setSelectedSpot} spot={selectedSpot} selectedDate={selectedDate} detailsOpen={detailsOpen} setDetailsOpen={setDetailsOpen} setChooseDateState={setChooseDateState} setChooseVehicleState={setChooseVehicleState} />
             )}
         </>
     );

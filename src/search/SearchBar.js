@@ -5,7 +5,7 @@ import ChooseDate from './ChooseDate';
 import ChooseVehicle from './ChooseVehicle';
 import FromTo from '../utils/FromTo';
 
-const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState, selectedDate, setSelectedDate, chosenDestination }) => {
+const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState, selectedDate, setSelectedDate, chosenDestination, chooseDateState, chooseVehicleState, setChooseDateState, setChooseVehicleState }) => {
 
     const handleInputChange = (e) => {
         setSearchValue(e.target.value);

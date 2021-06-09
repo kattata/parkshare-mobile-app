@@ -3,9 +3,10 @@ import pinkHeart from '../assets/heart-pink.png';
 import close from '../assets/x.svg';
 import handicap from '../assets/disabled.svg';
 import './spot.scss';
+import '../utils/utils.scss';
 import FromTo from '../utils/FromTo';
 
-const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
+const SpotDetails = ({ spot, setSelectedSpot, selectedDate, setDetailsOpen, detailsOpen, setChooseDateState, setChooseVehicleState }) => {
 
     const details = (
         <div className={detailsOpen ? 'spot-details bottom-slide-out active' : 'spot-details bottom-slide-out'}>
@@ -23,7 +24,7 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
                         <img src={blackHeart} alt="black heart" className="heart" />
                     )}
                 </div>
-                <FromTo setChooseDateState={setChooseDateState} selectedDate={selectedDate} setChooseVehicleState={setChooseVehicleState} />
+                <FromTo setChooseDateState={setChooseDateState} selectedDate={selectedDate} setChooseVehicleState={setChooseVehicleState} detailsOpen={detailsOpen} setDetailsOpen={setDetailsOpen} />
                 <div className="split">
                     <div className="split-item">
                         <h5>Total price</h5>

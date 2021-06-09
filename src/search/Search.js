@@ -51,8 +51,8 @@ const Search = () => {
 
     return (
         <div className="search">
-            <Map selectedDate={selectedDate} viewport={viewport} setViewport={setViewport} />
-            <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} chosenDestination={chosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+            <Map selectedDate={selectedDate} viewport={viewport} setViewport={setViewport} setChooseDateState={setChooseDateState} setChooseVehicleState={setChooseVehicleState} />
+            <SearchBar searchValue={searchValue} setDestinationOpen={setDestinationOpen} chosenDestination={chosenDestination} setSearchValue={setSearchValue} searchBarState={searchBarState} setSearchBarState={setSearchBarState} selectedDate={selectedDate} setSelectedDate={setSelectedDate} chooseDateState={chooseDateState} setChooseDateState={setChooseDateState} chooseVehicleState={chooseVehicleState} setChooseVehicleState={setChooseVehicleState} />
             <SearchFocus setChosenDestination={setChosenDestination} searchValue={searchValue} destinationOpen={destinationOpen} setDestinationOpen={setDestinationOpen} searchResults={searchResults} setSearchValue={setSearchValue} searchBarState={searchBarState} goToDestination={goToDestination} setSearchBarState={setSearchBarState} />
         </div>
     );

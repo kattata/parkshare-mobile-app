@@ -29,39 +29,39 @@
     }
 
 
-    .dates {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 10px 20px;
-        justify-content: space-between;
+    // .dates {
+    //     display: grid;
+    //     grid-template-columns: 1fr 1fr;
+    //     padding: 10px 20px;
+    //     justify-content: space-between;
 
-        button {
-            background-color: white;
-            border: none;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            padding: 10px 0;
+    //     button {
+    //         background-color: white;
+    //         border: none;
+    //         display: flex;
+    //         flex-direction: column;
+    //         position: relative;
+    //         padding: 10px 0;
 
-            &::before, &::after {
-                content: "";
-                height: 1px;
-                width: 100vw;
-                background-color: $light-grey;
-                position: absolute;
-                left: -30%;
-            }
+    //         &::before, &::after {
+    //             content: "";
+    //             height: 1px;
+    //             width: 100vw;
+    //             background-color: $light-grey;
+    //             position: absolute;
+    //             left: -30%;
+    //         }
             
-            &::before {
-                top: 0;
-            }
+    //         &::before {
+    //             top: 0;
+    //         }
             
-            &::after {
-                bottom: 0;
+    //         &::after {
+    //             bottom: 0;
                 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
     .split {
         display: grid;
