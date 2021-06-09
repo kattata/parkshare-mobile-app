@@ -2,12 +2,16 @@
 
 .top-bar {
     background-color: $blue;
-    height: 80px;
+    height: 55px;
     width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 3;
+
+    &.big {
+        height: 80px;
+    }
 
     .container {
         display: flex;

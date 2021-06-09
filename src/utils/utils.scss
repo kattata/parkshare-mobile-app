@@ -24,3 +24,15 @@
         }
     }
 }
+
+.dates {
+    padding: 10px 15px;
+    justify-content: space-between;
+    border-top: 1px solid $light-grey;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    h4 {
+        text-align: left;
+    }
+}

@@ -3,6 +3,7 @@ import pinkHeart from '../assets/heart-pink.png';
 import close from '../assets/x.svg';
 import handicap from '../assets/disabled.svg';
 import './spot.scss';
+import FromTo from '../utils/FromTo';
 
 const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
 
@@ -22,16 +23,7 @@ const SpotDetails = ({ spot, setSelectedSpot, selectedDate, detailsOpen }) => {
                         <img src={blackHeart} alt="black heart" className="heart" />
                     )}
                 </div>
-                <div className="dates">
-                    <button>
-                        <h5>From</h5>
-                        <h4>{selectedDate.from}</h4>
-                    </button>
-                    <button>
-                        <h5>To</h5>
-                        <h4>{selectedDate.to}</h4>
-                    </button>
-                </div>
+                <FromTo setChooseDateState={setChooseDateState} selectedDate={selectedDate} setChooseVehicleState={setChooseVehicleState} />
                 <div className="split">
                     <div className="split-item">
                         <h5>Total price</h5>

@@ -1,6 +1,6 @@
-import './tabswitcher.scss';
+import './utils.scss';
 
-const TabSwitcher = ({ firstTabFunc, firstTabText, switcherState, switchTab, secondTabText }) => {
+const TabSwitcher = ({ firstTabText, switcherState, switchTab, secondTabText }) => {
     return (
         <div className="tab-switcher">
             <div>
@@ -11,8 +11,6 @@ const TabSwitcher = ({ firstTabFunc, firstTabText, switcherState, switchTab, sec
                 <span className={switcherState === 1 ? "first-line active-line" : "first-line"}></span>
                 <span className={switcherState === 2 ? "second-line active-line" : "second-line"}></span>
             </span>
-            {switcherState === 1 && <p>Upcoming bookings</p>}
-            {switcherState === 2 && <p>Past bookings</p>}
         </div>
     );
 }

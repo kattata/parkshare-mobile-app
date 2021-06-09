@@ -3,6 +3,7 @@ import filters from '../assets/sliders.svg';
 import { useState } from 'react';
 import ChooseDate from './ChooseDate';
 import ChooseVehicle from './ChooseVehicle';
+import FromTo from '../utils/FromTo';
 
 const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarState, setSearchBarState, selectedDate, setSelectedDate, chosenDestination }) => {
 
@@ -19,9 +20,6 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
         setSearchBarState(2);
     }
 
-    const [chooseDateState, setChooseDateState] = useState(0);
-
-    const [chooseVehicleState, setChooseVehicleState] = useState(0);
     const [selectedVehicles, setSelectedVehicles] = useState([]);
 
 
@@ -35,22 +33,7 @@ const SearchBar = ({ searchValue, setDestinationOpen, setSearchValue, searchBarS
                 </form>
                 {searchBarState === 3 && (
                     <>
-                        <div className="dates">
-                            <button onClick={() => {
-                                setChooseDateState(1)
-                                setChooseVehicleState(0);
-                            }}>
-                                <h5>From</h5>
-                                <h4>{selectedDate.from}</h4>
-                            </button>
-                            <button onClick={() => {
-                                setChooseDateState(2);
-                                setChooseVehicleState(0)
-                            }}>
-                                <h5>To</h5>
-                                <h4>{selectedDate.to}</h4>
-                            </button>
-                        </div>
+                        <FromTo setChooseDateState={setChooseDateState} selectedDate={selectedDate} setChooseVehicleState={setChooseVehicleState} />
                         <div className="vehicles">
                             <button onClick={() => {
                                 setChooseVehicleState(1)

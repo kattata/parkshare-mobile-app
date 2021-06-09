@@ -5,12 +5,16 @@ import TopBar from './nav/TopBar';
 import Search from './search/Search';
 import Bookings from './bookings/Bookings';
 import Favorites from './favorites/Favorites';
+import { useState } from 'react';
 
 function App() {
+
+  const [topBarState, setTopBarState] = useState(1);
+
   return (
     <BrowserRouter>
       <TopBar />
-      <TabBar />
+      <TabBar setTopBarState={setTopBarState} />
       <Switch>
         <Route exact path="/">
           <Search />

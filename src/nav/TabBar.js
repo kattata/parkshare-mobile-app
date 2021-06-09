@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const TabBar = () => {
+const TabBar = ({ setTopBarState }) => {
 
     const [pathname, setPathname] = useState('/');
     const location = useLocation();

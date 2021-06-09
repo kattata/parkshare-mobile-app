@@ -1,5 +1,6 @@
 import close from '../assets/x.svg';
 import { useState } from 'react';
+import TabSwitcher from '../utils/TabSwitcher';
 
 const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSelectedDate }) => {
 
@@ -81,21 +82,11 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
 
     const chooseFromDate = (
         <div className={chooseDateState === 1 ? 'choose-date bottom-slide-out active' : 'choose-date bottom-slide-out'}>
-            {/* <div className="choose-date bottom-slide-out"> */}
             <span className="swipe-line"></span>
             <h2>Choose date</h2>
             <img src={close} alt="letter x" className="close" onClick={() => setChooseDateState(0)} />
             <div className="content">
-                <div className="from-to">
-                    <div>
-                        <h5 onClick={() => setChooseDateState(1)}>From</h5>
-                        <h5 onClick={() => setChooseDateState(2)}>To</h5>
-                    </div>
-                    <span className="tab-lines">
-                        <span className="from-line active-line"></span>
-                        <span className="to-line"></span>
-                    </span>
-                </div>
+                <TabSwitcher firstTabText="From" switcherState={chooseDateState} secondTabText="To" switchTab={setChooseDateState} />
                 <button className="secondary-btn">Now</button>
                 <form onSubmit={handleSubmitFrom}>
                     <label>Date</label>
@@ -114,16 +105,7 @@ const ChooseDate = ({ chooseDateState, setChooseDateState, selectedDate, setSele
             <h2>Choose date</h2>
             <img src={close} alt="letter x" className="close" onClick={() => setChooseDateState(0)} />
             <div className="content">
-                <div className="from-to">
-                    <div>
-                        <h5 onClick={() => setChooseDateState(1)}>From</h5>
-                        <h5 onClick={() => setChooseDateState(2)}>To</h5>
-                    </div>
-                    <span className="tab-lines">
-                        <span className="from-line"></span>
-                        <span className="to-line active-line"></span>
-                    </span>
-                </div>
+                <TabSwitcher firstTabText="From" switcherState={chooseDateState} secondTabText="To" switchTab={setChooseDateState} />
                 <form onSubmit={handleSubmitTo}>
                     <label>Date</label>
                     <input type="date" value={toDate.day} name="day" onChange={handleToChange} />

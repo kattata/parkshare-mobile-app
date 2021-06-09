@@ -46,6 +46,9 @@ const Search = () => {
         setViewport({ ...viewport, latitude: lat, longitude: long });
     }
 
+    const [chooseDateState, setChooseDateState] = useState(0);
+    const [chooseVehicleState, setChooseVehicleState] = useState(0);
+
     return (
         <div className="search">
             <Map selectedDate={selectedDate} viewport={viewport} setViewport={setViewport} />
