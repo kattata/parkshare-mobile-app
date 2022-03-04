@@ -12,13 +12,18 @@
  The search bar is buggy, but if you type in Aarhus and choose the first result, you'll be able to access more features (choosing booking time and choosing/adding new vehicles).
  
  ## Installation
+ 1. Install node modules
+ 
  ```bash
 npm install
 ```
 
+2. Start development server
 ```bash
 npm run start
 ```
+
+3. Open Dev Tools and mobile preview
 
 ## To do
 - [] Debug search functionality
