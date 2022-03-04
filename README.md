@@ -7,4 +7,20 @@
   - PositionStack 
   
  ## Note
- The deployed application doesn't function properly anymore due to high costs of PositionStack API.
+ The deployed application doesn't function properly anymore due to high costs of PositionStack API, but after installation you should be able to see the finished product.
+ 
+ The search bar is buggy, but if you type in Aarhus and choose the first result, you'll be able to access more features (choosing booking time and choosing/adding new vehicles).
+ 
+ ## Installation
+ ```bash
+npm install
+```
+
+```bash
+npm run start
+```
+
+## To do
+- [] Debug search functionality
+- [] Add authentication
+- [] Add filters
