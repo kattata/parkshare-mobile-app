@@ -1,7 +1,7 @@
 # ParkShare Mobile App
 - Solo AP Degree thesis project
 - A mobile application prototype built with web technologies. To be used by ParkShare's customers to find parking spots around Denmark, book them and find a cheaper, more convenient alternative to the public ones.
-- Stack: React, SCSS
+- Stack: React, SCSS, Firebase
 - APIs
   - MapBox 
   - PositionStack 
