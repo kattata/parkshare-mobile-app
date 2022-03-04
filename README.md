@@ -26,6 +26,6 @@ npm run start
 3. Open Dev Tools and mobile preview
 
 ## To do
-- [] Debug search functionality
-- [] Add authentication
-- [] Add filters
+- [ ] Debug search functionality
+- [ ] Add authentication
+- [ ] Add filters
